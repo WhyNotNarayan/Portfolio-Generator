@@ -8,8 +8,9 @@ export interface PortfolioData {
   bio: string;
   github: string;
 
-  // Step 2: Profile Image
+  // Step 2: Profile Image & Resume
   profileImage: string | null;
+  resumeUrl: string | null;
 
   // Step 3: Socials
   socials: Array<{ id: number; platform: string; url: string }>;
@@ -32,6 +33,7 @@ export interface PortfolioData {
   // Step 9: Contact (Phone/Email focus)
   email: string;
   phone: string;
+  location: string;
 
   // Step 10: Features selected (premium add-ons)
   selectedFeatures: string[];
@@ -57,6 +59,7 @@ const initialData: PortfolioData = {
   bio: "",
   github: "",
   profileImage: null,
+  resumeUrl: null,
   socials: [],
   services: [],
   projects: [],
@@ -65,6 +68,7 @@ const initialData: PortfolioData = {
   certificates: [],
   email: "",
   phone: "",
+  location: "",
   selectedFeatures: [],
   selected3DStyle: null,
   selectedThemeStyle: null,
