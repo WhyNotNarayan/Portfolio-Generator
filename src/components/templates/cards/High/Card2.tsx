@@ -102,12 +102,12 @@ const Card2: React.FC<TemplateProps> = ({ data }) => {
                   Hi, I'm <span style={{ color: primaryColor }}>{data.name}</span>
                </h1>
                <p style={{ fontSize: '1.8rem', fontWeight: 700, color: primaryColor, marginBottom: '0.8rem' }}>{data.role}</p>
-          
+
                {data.location && (
-                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', color: mutedTextColor, marginBottom: '2.5rem', fontSize: '1rem', fontWeight: 600 }}>
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ color: primaryColor }}><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                    {data.location}
-                 </div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', color: mutedTextColor, marginBottom: '2.5rem', fontSize: '1rem', fontWeight: 600 }}>
+                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ color: primaryColor }}><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                     {data.location}
+                  </div>
                )}
 
                <div className="social-container" style={{ display: 'flex', gap: '1.2rem', marginBottom: '3rem' }}>
@@ -122,7 +122,7 @@ const Card2: React.FC<TemplateProps> = ({ data }) => {
                      </a>
                   )}
                </div>
-               
+
                {data.bio && (
                   <p style={{ fontSize: '1.1rem', lineHeight: 1.7, opacity: 0.8, fontWeight: 500, maxWidth: '600px', marginBottom: '3rem' }}>
                      {data.bio}
@@ -285,11 +285,11 @@ const Card2: React.FC<TemplateProps> = ({ data }) => {
          <section id="contact" style={{ padding: '10rem 6%', background: isDarkMode ? '#0B0B0B' : '#f7fafc', borderTop: isDarkMode ? `4px solid ${primaryColor}` : 'none' }}>
             <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
                <h2 style={{ fontSize: '3.5rem', fontWeight: 900, textAlign: 'center', marginBottom: '8rem', color: primaryColor }}>Get In <span style={{ color: isDarkMode ? '#fff' : '#0B0B0B' }}>Touch</span></h2>
-               
+
                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(450px, 1fr))', gap: '4rem' }}>
                   <div style={{ background: cardBg, borderRadius: '30px', padding: '3.5rem', boxShadow: isDarkMode ? '0 10px 40px rgba(0,0,0,0.5)' : '0 10px 40px rgba(0,0,0,0.1)' }}>
                      <h3 style={{ fontSize: '1.8rem', fontWeight: 900, marginBottom: '2.5rem' }}>Send a Message</h3>
-                     
+
                      <form action={`https://formsubmit.co/${data.email}`} method="POST" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
                         <input type="text" name="_honey" style={{ display: 'none' }} />
                         <input type="hidden" name="_template" value="table" />
@@ -311,7 +311,7 @@ const Card2: React.FC<TemplateProps> = ({ data }) => {
                            <label style={{ fontSize: '0.9rem', fontWeight: 800, opacity: 0.8, display: 'block', marginBottom: '0.6rem' }}>Message</label>
                            <textarea name="message" rows={5} required placeholder="Your Message" style={{ width: '100%', padding: '1.2rem', borderRadius: '12px', background: isDarkMode ? '#0B0B0B' : '#f3f4f6', border: `1px solid ${isDarkMode ? primaryColor + '44' : 'transparent'}`, color: 'inherit', fontWeight: 600 }}></textarea>
                         </div>
-                        
+
                         <div style={{ background: '#fff', border: '1px solid #d1d5db', borderRadius: '4px', padding: '1rem', width: 'fit-content', display: 'flex', alignItems: 'center', gap: '1rem' }}>
                            <input type="checkbox" style={{ width: '18px', height: '18px' }} required />
                            <span style={{ color: '#000', fontSize: '0.9rem' }}>I'm not a robot</span>
@@ -324,7 +324,7 @@ const Card2: React.FC<TemplateProps> = ({ data }) => {
 
                   <div style={{ background: cardBg, borderRadius: '30px', padding: '3.5rem', boxShadow: '0 10px 40px rgba(0,0,0,0.1)', display: 'flex', flexDirection: 'column', gap: '2rem' }}>
                      <h3 style={{ fontSize: '1.8rem', fontWeight: 900, marginBottom: '2.5rem' }}>Contact Information</h3>
-                     
+
                      <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem' }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
                            <div style={{ color: primaryColor }}><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></div>
@@ -345,12 +345,12 @@ const Card2: React.FC<TemplateProps> = ({ data }) => {
                      </div>
 
                      <div style={{ marginTop: 'auto', borderRadius: '20px', overflow: 'hidden', border: `1px solid ${primaryColor}22`, height: '250px' }}>
-                        <iframe 
-                           width="100%" 
-                           height="100%" 
-                           frameBorder="0" 
-                           style={{ border: 0, filter: isDarkMode ? 'invert(90%) hue-rotate(180deg) brightness(0.6)' : 'none' }} 
-                           src={`https://www.google.com/maps?q=${encodeURIComponent(data.location || "Earth")}&output=embed`} 
+                        <iframe
+                           width="100%"
+                           height="100%"
+                           frameBorder="0"
+                           style={{ border: 0, filter: isDarkMode ? 'invert(90%) hue-rotate(180deg) brightness(0.6)' : 'none' }}
+                           src={`https://www.google.com/maps?q=${encodeURIComponent(data.location || "Earth")}&output=embed`}
                            allowFullScreen>
                         </iframe>
                      </div>
