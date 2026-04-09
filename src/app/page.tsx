@@ -1,7 +1,12 @@
+"use client";
+
 import Link from "next/link";
+import { usePortfolioStore } from "@/lib/store";
 import "../app/globals.css";
 
 export default function Home() {
+  const { userId, userName, reset } = usePortfolioStore();
+
   return (
     <>
       <header className="container nav-header">
@@ -11,12 +16,24 @@ export default function Home() {
         <nav style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
           <Link href="/templates" style={{ color: 'var(--text-muted)', fontWeight: 500 }}>Templates</Link>
           <Link href="/custom-design" style={{ color: 'var(--text-muted)', fontWeight: 500 }}>Custom Design</Link>
-          <Link href="/login" className="btn btn-secondary" style={{ padding: '0.5rem 1.2rem' }}>
-            Log In
-          </Link>
-          <Link href="/signup" className="btn btn-primary" style={{ padding: '0.5rem 1.2rem' }}>
-            Sign Up
-          </Link>
+          
+          {userId ? (
+            <>
+              <span style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>Hi, {userName || 'User'}</span>
+              <button onClick={() => reset()} className="btn btn-secondary" style={{ padding: '0.5rem 1.2rem' }}>
+                Logout
+              </button>
+            </>
+          ) : (
+            <>
+              <Link href="/login" className="btn btn-secondary" style={{ padding: '0.5rem 1.2rem' }}>
+                Log In
+              </Link>
+              <Link href="/signup" className="btn btn-primary" style={{ padding: '0.5rem 1.2rem' }}>
+                Sign Up
+              </Link>
+            </>
+          )}
         </nav>
       </header>
 
@@ -34,7 +51,7 @@ export default function Home() {
         
         <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', marginTop: '2rem' }}>
           <Link href="/wizard" className="btn btn-gradient animate-float" style={{ fontSize: '1.1rem', padding: '1rem 2.5rem' }}>
-            Generate Portfolio Now
+            {userId ? "Build Your Portfolio" : "Generate Portfolio Now"}
           </Link>
           <Link href="/custom-design" className="btn btn-secondary" style={{ fontSize: '1.1rem', padding: '1rem 2.5rem' }}>
             Request Custom Build
