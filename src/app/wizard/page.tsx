@@ -5,7 +5,7 @@ import { usePortfolioStore } from "@/lib/store";
 import "../../app/globals.css";
 
 export default function Wizard() {
-  const { data, updateData } = usePortfolioStore();
+  const { data, updateData, userId } = usePortfolioStore();
 
   return (
     <>
@@ -74,8 +74,13 @@ export default function Wizard() {
 
             <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '3rem' }}>
               <Link href="/" className="btn btn-secondary">Cancel</Link>
-              <Link href="/signup" className="btn btn-gradient">Next Step ➔</Link>
-            </div>
+              <Link 
+                href={userId ? "/wizard/step-profile" : "/signup"} 
+                className="btn btn-gradient"
+              >
+                Next Step ➔
+              </Link>
+ew            </div>
           </div>
         </div>
 
