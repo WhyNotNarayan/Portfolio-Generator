@@ -4,10 +4,16 @@ import Razorpay from "razorpay";
 import crypto from "crypto";
 import { prisma } from "@/lib/prisma";
 
-const razorpay = new Razorpay({
-  key_id: process.env.RAZORPAY_KEY_ID!,
-  key_secret: process.env.RAZORPAY_KEY_SECRET!,
-});
+// Helper to get Razorpay instance
+const getRazorpayInstance = () => {
+  if (!process.env.RAZORPAY_KEY_ID || !process.env.RAZORPAY_KEY_SECRET) {
+    throw new Error("Razorpay keys are missing from environment variables.");
+  }
+  return new Razorpay({
+    key_id: process.env.RAZORPAY_KEY_ID,
+    key_secret: process.env.RAZORPAY_KEY_SECRET,
+  });
+};
 
 /**
  * Creates a new Razorpay Order on the backend.
@@ -15,6 +21,8 @@ const razorpay = new Razorpay({
  */
 export async function createPaymentOrder(amount: number, userId: string, portfolioId?: string) {
   try {
+    const razorpay = getRazorpayInstance();
+
     const options = {
       amount: Math.round(amount * 100), // convert to paise
       currency: "INR",
@@ -55,10 +63,14 @@ export async function verifyPayment(
   razorpaySignature: string
 ) {
   try {
+    if (!process.env.RAZORPAY_KEY_SECRET) {
+        throw new Error("Razorpay secret key is missing");
+    }
+
     const body = razorpayOrderId + "|" + razorpayPaymentId;
 
     const expectedSignature = crypto
-      .createHmac("sha256", process.env.RAZORPAY_KEY_SECRET!)
+      .createHmac("sha256", process.env.RAZORPAY_KEY_SECRET)
       .update(body.toString())
       .digest("hex");
 
