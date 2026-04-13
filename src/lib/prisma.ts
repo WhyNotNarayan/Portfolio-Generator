@@ -2,15 +2,16 @@ import { PrismaClient } from "@prisma/client";
 import { PrismaPg } from "@prisma/adapter-pg";
 import pg from "pg";
 
-const connectionString = process.env.DATABASE_URL;
+const connectionString = process.env.DATABASE_URL || "";
 
 if (!connectionString) {
-  throw new Error("DATABASE_URL is not defined in .env file");
+  console.error("CRITICAL: DATABASE_URL is not defined in .env file or Vercel Environment Variables.");
 }
 
 const pool = new pg.Pool({
-  connectionString,
-  // Optional: good settings for Supabase + Next.js
+  connectionString: connectionString,
+  // Required for Supabase in Production/Vercel
+  ssl: process.env.NODE_ENV === "production" ? { rejectUnauthorized: false } : undefined,
   max: 10,
   idleTimeoutMillis: 30000,
   connectionTimeoutMillis: 2000,
