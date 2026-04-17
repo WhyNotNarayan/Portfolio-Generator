@@ -95,5 +95,5 @@ This app is optimized for **Vercel**.
 Distributed under the MIT License. See `LICENSE` for more information.
 
 <div align="center">
-  Built with ❤️ by Aniket
+  Built with ❤️ \Narayan Ashok Gawade
 </div>
