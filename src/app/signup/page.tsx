@@ -27,10 +27,13 @@ export default function Signup() {
       return;
     }
 
-    // Success! Redirect to the profile image step
+    // Success! Redirect to the specified step or profile image step
     if (result.success && result.userId) {
       setUser(result.userId, formData.get("name") as string);
-      router.push("/wizard/step-profile");
+      
+      const searchParams = new URLSearchParams(window.location.search);
+      const redirectPath = searchParams.get("redirect") || "/wizard/step-profile";
+      router.push(redirectPath);
     }
   };
 
@@ -70,7 +73,12 @@ export default function Signup() {
 
           <div style={{ marginTop: '1.5rem', textAlign: 'center' }}>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>
-              Already have an account? <Link href="/login" style={{ color: 'var(--accent-blue)', fontWeight: 600 }}>Log In</Link>
+              Already have an account? <span 
+                onClick={() => router.push('/login' + window.location.search)} 
+                style={{ color: 'var(--accent-blue)', fontWeight: 600, cursor: 'pointer' }}
+              >
+                Log In
+              </span>
             </p>
           </div>
         </div>

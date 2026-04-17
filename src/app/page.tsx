@@ -26,10 +26,10 @@ export default function Home() {
             </>
           ) : (
             <>
-              <Link href="/login" className="btn btn-secondary" style={{ padding: '0.5rem 1.2rem' }}>
+              <Link href="/login?redirect=/wizard" className="btn btn-secondary" style={{ padding: '0.5rem 1.2rem' }}>
                 Log In
               </Link>
-              <Link href="/signup" className="btn btn-primary" style={{ padding: '0.5rem 1.2rem' }}>
+              <Link href="/signup?redirect=/wizard" className="btn btn-primary" style={{ padding: '0.5rem 1.2rem' }}>
                 Sign Up
               </Link>
             </>

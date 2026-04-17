@@ -29,7 +29,10 @@ export default function Login() {
 
     if (result.success && result.userId) {
       setUser(result.userId, result.userName);
-      router.push("/wizard/step-profile");
+      
+      const searchParams = new URLSearchParams(window.location.search);
+      const redirectPath = searchParams.get("redirect") || "/wizard/step-profile";
+      router.push(redirectPath);
     }
   };
 
@@ -65,7 +68,12 @@ export default function Login() {
 
           <div style={{ marginTop: '1.5rem', textAlign: 'center' }}>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>
-              Don't have an account? <Link href="/signup" style={{ color: 'var(--accent-blue)', fontWeight: 600 }}>Create One</Link>
+              Don't have an account? <span 
+                onClick={() => router.push('/signup' + window.location.search)} 
+                style={{ color: 'var(--accent-blue)', fontWeight: 600, cursor: 'pointer' }}
+              >
+                Create One
+              </span>
             </p>
           </div>
         </div>

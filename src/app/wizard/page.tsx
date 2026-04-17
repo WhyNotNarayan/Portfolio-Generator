@@ -75,12 +75,12 @@ export default function Wizard() {
             <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '3rem' }}>
               <Link href="/" className="btn btn-secondary">Cancel</Link>
               <Link 
-                href={userId ? "/wizard/step-profile" : "/signup"} 
+                href={userId ? "/wizard/step-profile" : "/signup?redirect=/wizard/step-profile"} 
                 className="btn btn-gradient"
               >
                 Next Step ➔
               </Link>
-ew            </div>
+            </div>
           </div>
         </div>
 
