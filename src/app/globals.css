@@ -269,3 +269,33 @@ a {
   color: var(--text-muted);
   margin-bottom: 2rem;
 }
+/* Password Visibility Toggle */
+.password-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.password-toggle-btn {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem;
+  transition: color 0.2s ease;
+  z-index: 5;
+}
+
+.password-toggle-btn:hover {
+  color: var(--text-main);
+}
+
+.input-field-with-icon {
+  padding-right: 3.5rem !important;
+}
