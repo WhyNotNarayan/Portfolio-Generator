@@ -22,14 +22,14 @@ export default function WizardStep8() {
        phone: contact.phone, 
        location: contact.address 
     });
-    router.push("/wizard/step-9");
+    router.push("/wizard/step-10");
   };
 
   return (
     <>
       <header className="container nav-header">
         <Link href="/" className="logo">Port<span className="text-gradient">Gen.</span></Link>
-        <div style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>Step 8 of 8: Contact & Finish</div>
+        <div style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>Step 8: Contact Info</div>
       </header>
 
       <main className="container" style={{ paddingTop: '4rem', paddingBottom: '4rem', display: 'flex', gap: '4rem', flexWrap: 'wrap' }}>
@@ -68,7 +68,7 @@ export default function WizardStep8() {
                 onClick={handleNext}
                 className="btn btn-gradient"
               >
-                Next: Advanced Features ➔
+                Next: Portfolio Selection ➔
               </button>
             </div>
           </div>

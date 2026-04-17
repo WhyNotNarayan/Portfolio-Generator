@@ -61,7 +61,7 @@ export default function WizardStep10() {
           Port<span className="text-gradient">Gen.</span>
         </Link>
         <div style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>
-          Step 10 of 11: Portfolio Selection
+          Final Step: Portfolio Selection
         </div>
       </header>
 
@@ -189,7 +189,7 @@ export default function WizardStep10() {
           </div>
           
           <div style={{ display: 'flex', gap: '1.5rem' }}>
-            <Link href="/wizard/step-9" className="btn btn-secondary" style={{ padding: '1rem 2rem' }}>← Back</Link>
+            <Link href="/wizard/step-8" className="btn btn-secondary" style={{ padding: '1rem 2rem' }}>← Back</Link>
             
             {grandTotal === 0 ? (
               <Link href="/wizard/finish" className="btn btn-gradient" style={{ padding: '1rem 3rem' }}>
